@@ -4,6 +4,18 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>GA4/GTM Debug</title>
+      <script>
+         document.addEventListener('play', function(e) {
+                 if (e.target.tagName === 'VIDEO') {
+                     dataLayer.push({
+                         'event': 'video_play',
+                         'event_category': 'video',
+                         'event_action': 'play',
+                         'event_label': e.target.currentSrc,
+                     });
+                   }
+         }, true);
+      </script>
       <!-- Google Tag Manager -->
       <script>
          (function (w, d, s, l, i) {
