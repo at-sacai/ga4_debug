@@ -1,46 +1,97 @@
-.<!DOCTYPE html>
+.
+<!DOCTYPE html>
 <html lang="ja">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>GA4/GTM Debug</title>
-      <script>
-         document.addEventListener('play', function(e) {
-            const videoCurrentTime = Math.floor(e.target.currentTime);
-                 if (e.target.tagName === 'VIDEO') {
-                     dataLayer.push({
-                         'event': 'video_play',
-                         'event_category': 'video',
-                         'event_action': 'play',
-                         'event_label': e.target.currentSrc,
-                         'video_current_time': videoCurrentTime
-                     });
-                   }
-         }, true);
-      </script>
-      <!-- Google Tag Manager -->
-      <script>
-         (function (w, d, s, l, i) {
-         	w[l] = w[l] || [];
-         	w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-         	var f = d.getElementsByTagName(s)[0],
-         		j = d.createElement(s),
-         		dl = l != 'dataLayer' ? '&l=' + l : '';
-         	j.async = true;
-         	j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-         	f.parentNode.insertBefore(j, f);
-         })(window, document, 'script', 'dataLayer', 'GTM-T4Z3SS2');
-      </script>
-      <!-- End Google Tag Manager -->
-   </head>
-   <body>
-      <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4Z3SS2" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
-      <!-- End Google Tag Manager (noscript) -->
-      <h1 data-ga-value="age">GA4/GTM Debug</h1>
-      <h1 data-ga-value="hoge">GA4/GTM Debug</h1>
-      <a href="https://homeiot.kddi.com/anshinwatcher/kids/index.html?utm_source=test_sakai&utm_medium=test_sakail&utm_campaign=test_sakai">リンク</a>
-      <video src="src/sample.mp4" id="movie" controls muted autoplay playsinline loop></video>
-      <video src="src/sample.mp4" id="movie" controls muted autoplay playsinline loop></video>
-   </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GA4/GTM Debug</title>
+    <script>
+      document.addEventListener('play', function(e) {
+        const videoCurrentTime = Math.floor(e.target.currentTime);
+        if (e.target.tagName === 'VIDEO') {
+          dataLayer.push({
+            'event': 'video_play',
+            'event_category': 'video',
+            'event_action': 'play',
+            'event_label': e.target.currentSrc,
+            'video_current_time': videoCurrentTime
+          });
+        }
+      }, true);
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-T4Z3SS2');
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4Z3SS2" height="0" width="0" style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <h1>お問い合わせフォーム</h1>
+    <form action="#" method="post">
+      <dl>
+        <dt>
+          <label for="username">お名前</label>
+        </dt>
+        <dd>
+          <input type="text" name="username" id="username" />
+        </dd>
+        <dt>
+          <label for="email">メールアドレス</label>
+        </dt>
+        <dd>
+          <input type="text" name="email" id="email" />
+        </dd>
+        <dt>
+          <label for="area">お住まいの地域</label>
+        </dt>
+        <dd>
+          <select name="area" id="area">
+            <option value="選択してください" selected>選択してください</option>
+            <option value="東京都">東京都</option>
+            <option value="大阪府">大阪府</option>
+            <option value="福岡県">福岡県</option>
+          </select>
+        </dd>
+        <dt>性別</dt>
+        <dd>
+          <label>
+            <input type="radio" name="gender" checked />男性 </label>
+          <label>
+            <input type="radio" name="gender" />女性 </label>
+        </dd>
+        <dt>
+          <label for="contents">お問合せ内容</label>
+        </dt>
+        <dd>
+          <textarea name="contets" id="contets" cols="30" rows="10"></textarea>
+        </dd>
+        <dt>
+          <label for="privacy">プライバシーポリシーに同意する</label>
+        </dt>
+        <dd>
+          <label>
+            <input type="checkbox" name="privacy" value="1" id="privacy" />
+          </label>
+        </dd>
+        <input type="submit" value="送信" />
+      </dl>
+    </form>
+  </body>
 </html>
