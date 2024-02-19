@@ -1,10 +1,20 @@
-.
 <!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GA4/GTM Debug</title>
+    <script>
+      function sendImageLoadEvent(category, action, label) {
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+          'event': 'sendImageLoadEvent',
+          'category': category,
+          'action': action,
+          'label': label,
+        })
+      }
+    </script>
     <!-- Google Tag Manager -->
     <script>
       (function(w, d, s, l, i) {
@@ -36,7 +46,7 @@
           <label for="username">お名前</label>
         </dt>
         <dd>
-          <input type="text" name="username" id="username" />
+          <input type="text" name="username" id="username" onfocus="sendImageLoadEvent(" 申込フォーム", "フォーカス" , "お名前" )" />
         </dd>
         <dt>
           <label for="email">メールアドレス</label>
